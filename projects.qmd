@@ -1,0 +1,10 @@
+---
+title: "Projects"
+listing:
+  contents: projects
+  type: default
+  categories: false
+  sort: date desc
+---
+
+Below, you can find my projects...

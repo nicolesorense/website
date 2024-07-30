@@ -1,0 +1,18 @@
+---
+title: "COVID-19 dynamics of Pennsylvania"
+description: "EDA project on covid cases and deaths for counties in Pennsylvania during 2020"
+date: June 17, 2024
+resources: "."
+about:
+  template: solana
+  image: eda_image_new.png
+  links:
+    - icon: github
+      text: "GitHub"
+      href: https://github.com/LJxse27/Group-5
+      target: _blank
+    - icon: laptop
+      text: Slides
+      href: assets/eda_slides.pdf
+---
+
