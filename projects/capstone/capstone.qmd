@@ -9,7 +9,7 @@ about:
   links:
     - icon: laptop
       text: Slides
-      href: assets/hospital_slides.pdf
+      href: hospital_slides.pdf
       target: _blank
     - icon: filter-square-fill
       text: Poster
