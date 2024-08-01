@@ -9,10 +9,10 @@ about:
   links:
     - icon: pencil
       text: "Report"
-      href: assets/315-FinalProject--3-.html
+      href: https://nicolesorense.github.io/website/assets/315-FinalProject--3-.html
       target: _blank
     - icon: laptop
       text: Slides
-      href: assets/depression_and_health.pdf
+      href: https://nicolesorense.github.io/website/assets/depression_and_health.pdf
       target: _blank
 ---

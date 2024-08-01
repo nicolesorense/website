@@ -9,7 +9,7 @@ about:
   links:
     - icon: laptop
       text: Slides
-      href: assets/hospital_slides.pdf
+      href: https://nicolesorense.github.io/website/assets/hospital_slides.pdf
       target: _blank
     - icon: filter-square-fill
       text: Poster
@@ -17,6 +17,6 @@ about:
       target: _blank
     - icon: pencil
       text: Report
-      href: assets/Preventable_hospitalizations_report_personal.html
+      href: https://nicolesorense.github.io/website/assets/Preventable_hospitalizations_report_personal.html
       target: _blank
 ---
