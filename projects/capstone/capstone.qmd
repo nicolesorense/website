@@ -13,7 +13,7 @@ about:
       target: _blank
     - icon: filter-square-fill
       text: Poster
-      href: assets/hospital_poster.pdf
+      href: https://nicolesorense.github.io/website/assets/hospital_poster.pdf
       target: _blank
     - icon: pencil
       text: Report
