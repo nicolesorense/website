@@ -14,5 +14,6 @@ about:
     - icon: laptop
       text: Slides
       href: https://nicolesorense.github.io/website/assets/eda_slides.pdf
+      target: _blank
 ---
 

@@ -1,1 +1,5 @@
 /* css styles */
+.project img {
+  max-width: 100%;  /* Ensure images fit within their containers */
+  height: auto;     /* Maintain aspect ratio */
+}

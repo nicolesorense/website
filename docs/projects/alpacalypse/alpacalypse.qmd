@@ -1,0 +1,18 @@
+---
+title: "Alpacalypse"
+description: "2D survival video game coded in python"
+date: December 6, 2023
+resources: "."
+about:
+  template: solana
+  image: alpacalypse.png
+  links:
+    - icon: github
+      text: "GitHub"
+      href: https://github.com/nicolesorense/Alpacalypse/blob/main/Alpacalypse.py
+      target: _blank
+    - icon: youtube
+      text: "Video demo"
+      href: https://youtu.be/fZt-96Ad6fU?feature=shared
+      target: _blank
+---

@@ -5,7 +5,7 @@ date: July 26, 2024
 resources: "."
 about:
   template: solana
-  image: capstone_image.png
+  image: https://nicolesorense.github.io/website/assets/capstone_image.png
   links:
     - icon: laptop
       text: Slides
