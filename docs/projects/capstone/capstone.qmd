@@ -1,6 +1,6 @@
 ---
 title: "Socioeconomic roots of racial disparities in hospitalizations"
-description: "Capstone project on modeling preventable hospital stays for SURE 2024 at CMU"
+description: "Capstone project on modeling preventable hospital stays for SURE 2024 at Carnegie Mellon University"
 date: July 26, 2024
 resources: "."
 about:
