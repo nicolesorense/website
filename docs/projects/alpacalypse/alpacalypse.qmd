@@ -9,7 +9,7 @@ about:
   links:
     - icon: github
       text: "GitHub"
-      href: https://github.com/nicolesorense/Alpacalypse/blob/main/Alpacalypse.py
+      href: https://github.com/nicolesorense/Alpacalypse
       target: _blank
     - icon: youtube
       text: "Video demo"
