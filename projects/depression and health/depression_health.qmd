@@ -1,6 +1,6 @@
 ---
 title: "Depression and health"
-description: "Examinining what factors influence depression and health over time"
+description: "Data visualization to examine what factors influence depression and health over time"
 date: December 2023
 resources: "."
 about:

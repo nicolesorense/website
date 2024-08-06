@@ -1,6 +1,6 @@
 ---
 title: "Alpacalypse"
-description: "2D survival video game coded in python"
+description: "Survival video game coded in python using object-oriented programming and algorithms including A* pathfinding and cellular automata"
 date: December 6, 2023
 resources: "."
 about:

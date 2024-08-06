@@ -1,6 +1,6 @@
 ---
 title: "COVID-19 dynamics of Pennsylvania"
-description: "EDA project on covid cases and deaths for counties in Pennsylvania during 2020"
+description: "Hierarchical clustering and EDA to examine trends in COVID-19 cases and deaths for counties in Pennsylvania during 2020"
 date: June 17, 2024
 resources: "."
 about:
