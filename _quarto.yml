@@ -22,6 +22,7 @@ website:
       - icon: file-earmark-pdf-fill
         href: https://nicolesorense.github.io/website/assets/nicole_sorensen_resume_general.pdf
         target: _blank
+    google-analytics: "GTM-TL2LTF6L"
         
 
 format:
