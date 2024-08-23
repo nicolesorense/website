@@ -254,7 +254,7 @@ f(x) = \beta _0 + \beta_1x_1 + \beta_2x_2 + \dotsc + \beta_nx_n
 <p>The coefficients are just constants.</p>
 <p>In GAMs:</p>
 <p><span class="math display">\[
-f(x) = \beta_0 + s_1(x_1) + s_2(x_2) + \dots + s_n(x_n)
+f(x) = \beta_0 + s_1(x_1) + s_2(x_2) + \dots + s_p(x_p)
 \]</span></p>
 <p>The coefficients are replaced by <strong>functions</strong> denoted by <span class="math inline">\(s_i\)</span>. These functions are <strong>non-parametric</strong> meaning that each function <span class="math inline">\(s_i\)</span> is learned from the data, without assuming a specific shape (like linear or quadratic). This makes GAMs more flexible compared to linear models, where each predictor is simply multiplied by a constant <span class="math inline">\(\beta_i\)</span>.</p>
 <p>In fact, linear models are just special cases of GAMs where each <span class="math inline">\(s_i\)</span> is just a linear function instead of a smooth curve.</p>
@@ -358,7 +358,7 @@ f(x) = \beta_0 + s_1(x_1) + s_2(x_2) + \dots + s_n(x_n)
 </section>
 <section id="step-2-ensuring-continuity" class="level4">
 <h4 data-anchor-id="step-2-ensuring-continuity">Step 2: Ensuring Continuity</h4>
-<p>To address this, we need to impose the condition that the function is <strong>continuous</strong> across the different segments. This means the pieces must meet at the breakpoints, so the function values are the same at the knots.</p>
+<p>To address this, we need to impose the condition that the function is continuous across the different segments. This means the pieces must meet at the breakpoints, so the function values are the same at the knots.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div>
@@ -463,7 +463,7 @@ f(x) = \beta_0 + s_1(x_1) + s_2(x_2) + \dots + s_n(x_n)
 <h3 data-anchor-id="what-about-interactions">What about interactions?</h3>
 <p>GAMs don’t automatically include interaction effects, but we can manually add them if we think the effect of one variable might depend on another.</p>
 <p>For example, younger people with higher body fat might still perform well because they have more muscle and faster metabolisms. For older people, high body fat may have a stronger negative effect. Thus, we expect that <strong>the effect of body fat on number of sit-ups increases with age</strong>.</p>
-<p>To model this interaction, we can include both age and bodyfatpercentage together.</p>
+<p>To model this interaction, we can include both age and body fat percentage together.</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Show the code</summary>
@@ -509,7 +509,7 @@ f(x) = \beta_0 + s_1(x_1) + s_2(x_2) + \dots + s_n(x_n)
 </tr>
 </tbody>
 </table>
-<p><em>How to check this assumption:</em> Visualize the smooth functions using partial effects plots to see if the shape of the smooth functions make sense given your data.</p></li>
+<p><em>How to check:</em> Visualize the smooth functions using partial effects plots to see if the shape of the smooth functions make sense given your data.</p></li>
 <li><p><strong>Additivity of effects:</strong></p>
 <p>Just as with linear regression, the effects of each of the variables on the outcome are added together to get the response.</p>
 <table class="table">
@@ -530,7 +530,7 @@ f(x) = \beta_0 + s_1(x_1) + s_2(x_2) + \dots + s_n(x_n)
 </tr>
 </tbody>
 </table>
-<p><em>How to check this assumption:</em> There is no direct diagnostic for this, but if you suspect interactions, try adding interaction terms and see if they significantly improve the model fit. If they do, the additivity assumption is insufficient.</p></li>
+<p><em>How to check:</em> There is no direct diagnostic for this, but if you suspect interactions, try adding interaction terms and see if they significantly improve the model fit. If they do, the additivity assumption is insufficient.</p></li>
 <li><p><strong>Independence of errors:</strong></p>
 <p>Same as with linear regression, GAMs assume that the errors are independent of each other. This helps ensure that no important patterns or variables are missing from the model.</p>
 <table class="table">
@@ -551,7 +551,7 @@ f(x) = \beta_0 + s_1(x_1) + s_2(x_2) + \dots + s_n(x_n)
 </tr>
 </tbody>
 </table>
-<p><em>How to check this assumption:</em> plot the residuals against fitted values, or if you are using time series data, the Durbin-Watson test will check for autocorrelation of the residuals.</p></li>
+<p><em>How to check:</em> plot the residuals against fitted values, or if you are using time series data, the Durbin-Watson test will check for autocorrelation of the residuals.</p></li>
 <li><p><strong>Distribution of errors:</strong></p>
 <p>The required distribution of errors in GAMs depends on the type of outcome variable:</p>
 <ul>
@@ -581,7 +581,7 @@ f(x) = \beta_0 + s_1(x_1) + s_2(x_2) + \dots + s_n(x_n)
 </tr>
 </tbody>
 </table>
-<p><em>How to check this assumption:</em> If the outcome is continuous (like the number of sit-ups), we check if the errors are normally distributed by looking at QQ plots and histograms of residuals.</p></li>
+<p><em>How to check:</em> If the outcome is continuous (like the number of sit-ups), we check if the errors are normally distributed by looking at QQ plots and histograms of residuals.</p></li>
 </ol>
 </section>
 <section id="conclusion" class="level2">

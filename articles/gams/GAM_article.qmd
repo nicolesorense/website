@@ -40,7 +40,7 @@ The coefficients are just constants.
 In GAMs:
 
 $$
-f(x) = \beta_0 + s_1(x_1) + s_2(x_2) + \dots + s_n(x_n)
+f(x) = \beta_0 + s_1(x_1) + s_2(x_2) + \dots + s_p(x_p)
 $$
 
 The coefficients are replaced by **functions** denoted by $s_i$. These functions are **non-parametric** meaning that each function $s_i$ is learned from the data, without assuming a specific shape (like linear or quadratic). This makes GAMs more flexible compared to linear models, where each predictor is simply multiplied by a constant $\beta_i$.
@@ -194,7 +194,7 @@ In this example, we set two breakpoints at ages 30 and 60, fitting three separat
 
 #### Step 2: Ensuring Continuity
 
-To address this, we need to impose the condition that the function is **continuous** across the different segments. This means the pieces must meet at the breakpoints, so the function values are the same at the knots.
+To address this, we need to impose the condition that the function is continuous across the different segments. This means the pieces must meet at the breakpoints, so the function values are the same at the knots.
 
 ```{r}
 #| echo: false
@@ -320,7 +320,7 @@ GAMs don’t automatically include interaction effects, but we can manually add 
 
 For example, younger people with higher body fat might still perform well because they have more muscle and faster metabolisms. For older people, high body fat may have a stronger negative effect. Thus, we expect that **the effect of body fat on number of sit-ups increases with age**.
 
-To model this interaction, we can include both age and bodyfatpercentage together.
+To model this interaction, we can include both age and body fat percentage together.
 
 ```{r}
 gam_interact <- gam(sit_ups_counts ~ te(age, body_fat_percent), data = sampled_data)
@@ -348,7 +348,7 @@ GAMs make several assumptions, some of which are similar to linear regression, w
     | Linear regression | Predictors must be linear   |
     | GAMs              | Predictors can be nonlinear |
 
-    *How to check this assumption:* Visualize the smooth functions using partial effects plots to see if the shape of the smooth functions make sense given your data.
+    *How to check:* Visualize the smooth functions using partial effects plots to see if the shape of the smooth functions make sense given your data.
 
 2.  **Additivity of effects:**
 
@@ -359,7 +359,7 @@ GAMs make several assumptions, some of which are similar to linear regression, w
     | Linear regression | Effects are added together |
     | GAMs              | Effects are added together |
 
-    *How to check this assumption:* There is no direct diagnostic for this, but if you suspect interactions, try adding interaction terms and see if they significantly improve the model fit. If they do, the additivity assumption is insufficient.
+    *How to check:* There is no direct diagnostic for this, but if you suspect interactions, try adding interaction terms and see if they significantly improve the model fit. If they do, the additivity assumption is insufficient.
 
 3.  **Independence of errors:**
 
@@ -370,7 +370,7 @@ GAMs make several assumptions, some of which are similar to linear regression, w
     | Linear regression | Errors should be independent |
     | GAMs              | Errors should be independent |
 
-    *How to check this assumption:* plot the residuals against fitted values, or if you are using time series data, the Durbin-Watson test will check for autocorrelation of the residuals.
+    *How to check:* plot the residuals against fitted values, or if you are using time series data, the Durbin-Watson test will check for autocorrelation of the residuals.
 
 4.  **Distribution of errors:**
 
@@ -387,7 +387,7 @@ GAMs make several assumptions, some of which are similar to linear regression, w
     | Linear regression | Normally distributed errors (if running hypothesis tests or calculating confidence intervals) |
     | GAMs              | Distribution depends on distribution of response                                              |
 
-    *How to check this assumption:* If the outcome is continuous (like the number of sit-ups), we check if the errors are normally distributed by looking at QQ plots and histograms of residuals.
+    *How to check:* If the outcome is continuous (like the number of sit-ups), we check if the errors are normally distributed by looking at QQ plots and histograms of residuals.
 
 ## Conclusion
 
