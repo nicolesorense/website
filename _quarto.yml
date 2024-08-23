@@ -12,6 +12,8 @@ website:
         text: Home
       - href: projects.qmd
         text: Projects
+      - href: articles.qmd
+        text: Articles
     right:
       - icon: linkedin
         href: https://www.linkedin.com/in/nicole-e-sorensen/

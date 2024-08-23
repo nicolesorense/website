@@ -1,5 +1,11 @@
 [
   {
+    "listing": "/articles.html",
+    "items": [
+      "/articles/gams/GAM_article.html"
+    ]
+  },
+  {
     "listing": "/projects.html",
     "items": [
       "/projects/capstone/capstone.html",

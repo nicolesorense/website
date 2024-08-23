@@ -1,0 +1,8 @@
+---
+title: "Articles"
+listing:
+  contents: articles
+  type: default
+  categories: false
+  sort: date desc
+---
