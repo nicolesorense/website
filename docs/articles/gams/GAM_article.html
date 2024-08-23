@@ -243,7 +243,7 @@ window.Quarto = {
 <li><p><strong>Nonlinear predictor effects:</strong> The relationship between each predictor and the outcome is modeled using smooth curves, which can capture non-linear trends.</p></li>
 <li><p><strong>Additivity:</strong> The final prediction is made by adding up the effects of each predictor.</p></li>
 </ul>
-<p>!<a href="https://nicolesorense.github.io/website/assets/images/gam_visual.png">gam</a></p>
+<p><img src="images/gam_visual.png" class="img-fluid"></p>
 <p>This is actually quite similar to linear regression! The main difference is that GAMs don’t require the relationship between each predictor and the outcome to be a straight line.</p>
 <p>Even though GAMs allow for non-linear effects, they are still considered <strong>linear models</strong> because the smooth functions are simply <strong>added together</strong>. The functions don’t interact or get multiplied in complicated ways, keeping the overall model linear.</p>
 <p>Here is how the two compare:</p>
@@ -332,8 +332,7 @@ f(x) = \beta_0 + s_1(x_1) + s_2(x_2) + \dots + s_n(x_n)
 <h2 data-anchor-id="why-use-gams">Why use GAMs?</h2>
 <p>Life is not linear!</p>
 <p>Although linear models are often sufficient to model many relationships, sometimes we do want to capture some complexity without oversimplifying it. GAMs are often advantageous over more complex models because their additive nature allows us to visualize the separate effects of each predictor on the outcome variable. This makes them <strong>much more interpretable</strong> than other “black-box” models like random forests and neural networks.</p>
-<p><img src="images/clipboard-2695550395.png" class="img-fluid"></p>
-<p>![GAM](/images/interpretability_flexibility_tradeoff.png)</p>
+<p><img src="images/interp_flex_tradeoff.png" class="img-fluid"></p>
 <p>(from Introduction to Statistical Learning)</p>
 <p>In this above representation of the tradeoff between flexibility and interpretability from “An Introduction to Statistical Learning”, we see that GAMs are both relatively flexible and interpretable, making them good for both prediction and inference.</p>
 </section>
@@ -370,7 +369,7 @@ f(x) = \beta_0 + s_1(x_1) + s_2(x_2) + \dots + s_n(x_n)
 </div>
 </div>
 <p>After adding this continuity constraint, the splines are connected, and the function appears mostly smooth. However, in many cases, the function may still have abrupt changes at the breakpoints, or <em>knots</em>, even though it is continuous, looking something like this:<br>
-<img src="images/clipboard-2311784894.png" class="img-fluid" width="362"></p>
+<img src="images/splines2.png" class="img-fluid" width="362"></p>
 </section>
 <section id="step-3-ensuring-smoothness" class="level4">
 <h4 data-anchor-id="step-3-ensuring-smoothness">Step 3: Ensuring Smoothness</h4>

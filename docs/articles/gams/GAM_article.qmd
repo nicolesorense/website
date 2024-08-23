@@ -21,7 +21,7 @@ GAMs are an advanced version of linear models that **can handle nonlinear patter
 
 -   **Additivity:** The final prediction is made by adding up the effects of each predictor.
 
-\![gam](https://nicolesorense.github.io/website/assets/images/gam_visual.png)
+![](images/gam_visual.png)
 
 This is actually quite similar to linear regression! The main difference is that GAMs don’t require the relationship between each predictor and the outcome to be a straight line.
 
@@ -114,9 +114,7 @@ Life is not linear!
 
 Although linear models are often sufficient to model many relationships, sometimes we do want to capture some complexity without oversimplifying it. GAMs are often advantageous over more complex models because their additive nature allows us to visualize the separate effects of each predictor on the outcome variable. This makes them **much more interpretable** than other "black-box" models like random forests and neural networks.
 
-![](images/clipboard-2695550395.png)
-
-\![GAM\](/images/interpretability_flexibility_tradeoff.png)
+![](images/interp_flex_tradeoff.png)
 
 (from Introduction to Statistical Learning)
 
@@ -242,7 +240,7 @@ p2
 ```
 
 After adding this continuity constraint, the splines are connected, and the function appears mostly smooth. However, in many cases, the function may still have abrupt changes at the breakpoints, or *knots*, even though it is continuous, looking something like this:\
-![](images/clipboard-2311784894.png){width="362"}
+![](images/splines2.png){width="362"}
 
 #### Step 3: Ensuring Smoothness
 
