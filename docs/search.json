@@ -4,7 +4,7 @@
     "href": "articles.html",
     "title": "Articles",
     "section": "",
-    "text": "What are Generalized Additive Models (GAMs) and when should you use them?\n\n\n\n\n\nBuilding intuition on how GAMs work and when they are useful\n\n\n\n\n\nAug 22, 2024\n\n\n\n\n\n\nNo matching items"
+    "text": "What are Generalized Additive Models (GAMs) and when should you use them?\n\n\nBuilding intuition on how GAMs work and when they are useful\n\n\n\n\n\n\nAug 22, 2024\n\n\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "index.html",
@@ -46,7 +46,7 @@
     "href": "articles/gams/GAM_article.html#why-use-gams",
     "title": "What are Generalized Additive Models (GAMs) and when should you use them?",
     "section": "Why use GAMs?",
-    "text": "Why use GAMs?\nLife is not linear!\nAlthough linear models are often sufficient to model many relationships, sometimes we do want to capture some complexity without oversimplifying it. GAMs are often advantageous over more complex models because their additive nature allows us to visualize the separate effects of each predictor on the outcome variable. This makes them much more interpretable than other “black-box” models like random forests and neural networks.\n\n(from Introduction to Statistical Learning)\nIn this above representation of the tradeoff between flexibility and interpretability from “An Introduction to Statistical Learning”, we see that GAMs are both relatively flexible and interpretable, making them good for both prediction and inference."
+    "text": "Why use GAMs?\nLife is not linear!\nAlthough linear models are often sufficient to model many relationships, sometimes we do want to capture some complexity without oversimplifying it. GAMs are often advantageous over more complex models because their additive nature allows us to visualize the separate effects of each predictor on the outcome variable. This makes them much more interpretable than other “black-box” models like random forests and neural networks.\n\nIn this above representation of the tradeoff between flexibility and interpretability from “An Introduction to Statistical Learning” (James et al. 2023), we see that GAMs are both relatively flexible and interpretable, making them good for both prediction and inference."
   },
   {
     "objectID": "articles/gams/GAM_article.html#how-are-the-functions-determined",

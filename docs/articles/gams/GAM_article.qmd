@@ -116,9 +116,7 @@ Although linear models are often sufficient to model many relationships, sometim
 
 ![](images/interp_flex_tradeoff.png)
 
-(from Introduction to Statistical Learning)
-
-In this above representation of the tradeoff between flexibility and interpretability from "An Introduction to Statistical Learning", we see that GAMs are both relatively flexible and interpretable, making them good for both prediction and inference.
+In this above representation of the tradeoff between flexibility and interpretability from "An Introduction to Statistical Learning" (James et al. 2023), we see that GAMs are both relatively flexible and interpretable, making them good for both prediction and inference.
 
 ## How are the functions determined?
 

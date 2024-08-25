@@ -2,7 +2,9 @@
 title: "Articles"
 listing:
   contents: articles
-  type: default
+  type: grid
+  grid-columns: 1
+  image-height: "8"
   categories: false
   sort: date desc
 ---
