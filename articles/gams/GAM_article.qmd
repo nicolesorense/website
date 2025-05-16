@@ -381,7 +381,7 @@ GAMs make several assumptions, some of which are similar to linear regression, w
     -   For **count data**, the errors should follow a **Poisson distribution**.
 
     | Model             | Relationship type                                                                             |
-    |------------------|------------------------------------------------------|
+    |-------------------|-----------------------------------------------------------------------------------------------|
     | Linear regression | Normally distributed errors (if running hypothesis tests or calculating confidence intervals) |
     | GAMs              | Distribution depends on distribution of response                                              |
 

@@ -1,0 +1,14 @@
+---
+title: "Ventilation Prediction using Deep Learning"
+description: "Training machine learning models to predict the timing of ventilation needs in the ICU."
+date: May 2025
+resources: "."
+about:
+  template: solana
+  image: depression_health_image.png
+  links:
+    - icon: pencil
+      text: "Report"
+      href: https://nicolesorense.github.io/website/assets/vent_pred_paper.html
+      target: _blank
+---

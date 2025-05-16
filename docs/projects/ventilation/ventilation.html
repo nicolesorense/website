@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="dcterms.date" content="2025-05-01">
+<meta name="description" content="Training machine learning models to predict the timing of ventilation needs in the ICU.">
 
-<title>Nicole Sorensen - Projects</title>
+<title>Nicole Sorensen - Ventilation Prediction using Deep Learning</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,24 +25,21 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -68,77 +67,19 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
 
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
 
-    const options = {
-      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
-
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
-
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../../styles.css">
 </head>
 
-<body class="nav-fixed">
+<body class="nav-fixed fullcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Nicole Sorensen</span>
     </a>
   </div>
@@ -149,15 +90,15 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html"> 
+    <a class="nav-link" href="../../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./projects.html" aria-current="page"> 
+    <a class="nav-link" href="../../projects.html"> 
 <span class="menu-text">Projects</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./articles.html"> 
+    <a class="nav-link" href="../../articles.html"> 
 <span class="menu-text">Articles</span></a>
   </li>  
 </ul>
@@ -188,168 +129,44 @@ window.Quarto = {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    </div>
+    
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-about-solana column-body content">
+  <div class="about-entity">
+    <div class="entity-contents">
+      <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Projects</h1>
+<h1 class="title">Ventilation Prediction using Deep Learning</h1>
 </div>
-
-
-
-<div class="quarto-title-meta">
-
-    
-  
-    
+<div>
+  <div class="description">
+    Training machine learning models to predict the timing of ventilation needs in the ICU.
   </div>
-  
+</div>
+<div class="quarto-title-meta">
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">May 1, 2025</p>
+    </div>
+  </div>
+  </div>
+</header> <div class="about-links">
+  <a href="https://nicolesorense.github.io/website/assets/vent_pred_paper.html" class="about-link" rel="" target="_blank">
+    <i class="bi bi-pencil"></i>
+     <span class="about-link-text">Report</span>
+  </a>
+</div>
+      <div class="about-contents"><main class="content" id="quarto-document-content">
 
 
-</header>
-
-
-<p>Below, you can find my projects…</p>
-
-
-
-
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-listing-date-sort="1746082800000" data-listing-file-modified-sort="1747410608632" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
-<div class="thumbnail">
-<p><a href="./projects/ventilation/ventilation.html" class="no-external"></a></p><a href="./projects/ventilation/ventilation.html" class="no-external">
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-</a><p><a href="./projects/ventilation/ventilation.html" class="no-external"></a></p>
+</main></div>
+    </div>
+    <img src="depression_health_image.png" class="about-image
+  rounded " style="width: 15em;">
+  </div>
 </div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./projects/ventilation/ventilation.html" class="no-external">Ventilation Prediction using Deep Learning</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./projects/ventilation/ventilation.html" class="no-external"></a>
-</div>
-<div class="listing-description">
-<a href="./projects/ventilation/ventilation.html" class="no-external">Training machine learning models to predict the timing of ventilation needs in the ICU.</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./projects/ventilation/ventilation.html" class="no-external">
-<div class="listing-date">
-May 1, 2025
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-listing-date-sort="1721977200000" data-listing-file-modified-sort="1722964116423" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
-<div class="thumbnail">
-<p><a href="./projects/capstone/capstone.html" class="no-external"></a></p><a href="./projects/capstone/capstone.html" class="no-external">
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-</a><p><a href="./projects/capstone/capstone.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./projects/capstone/capstone.html" class="no-external">Socioeconomic roots of racial disparities in hospitalizations</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./projects/capstone/capstone.html" class="no-external"></a>
-</div>
-<div class="listing-description">
-<a href="./projects/capstone/capstone.html" class="no-external">Modeling preventable hospital stays using Generalized Additive Models and Random Forests</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./projects/capstone/capstone.html" class="no-external">
-<div class="listing-date">
-Jul 26, 2024
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="2" data-listing-date-sort="1718607600000" data-listing-file-modified-sort="1724601243103" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
-<div class="thumbnail">
-<p><a href="./projects/eda/eda.html" class="no-external"></a></p><a href="./projects/eda/eda.html" class="no-external">
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-</a><p><a href="./projects/eda/eda.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./projects/eda/eda.html" class="no-external">COVID-19 dynamics of Pennsylvania</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./projects/eda/eda.html" class="no-external"></a>
-</div>
-<div class="listing-description">
-<a href="./projects/eda/eda.html" class="no-external">Hierarchical clustering and EDA to examine trends in COVID-19 cases and deaths for counties in Pennsylvania during 2020</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./projects/eda/eda.html" class="no-external">
-<div class="listing-date">
-Jun 17, 2024
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="3" data-listing-date-sort="1701849600000" data-listing-file-modified-sort="1722965779146" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
-<div class="thumbnail">
-<p><a href="./projects/alpacalypse/alpacalypse.html" class="no-external"></a></p><a href="./projects/alpacalypse/alpacalypse.html" class="no-external">
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-</a><p><a href="./projects/alpacalypse/alpacalypse.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./projects/alpacalypse/alpacalypse.html" class="no-external">Alpacalypse</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./projects/alpacalypse/alpacalypse.html" class="no-external"></a>
-</div>
-<div class="listing-description">
-<a href="./projects/alpacalypse/alpacalypse.html" class="no-external">Survival video game coded in python using object-oriented programming and algorithms including A* pathfinding and cellular automata</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./projects/alpacalypse/alpacalypse.html" class="no-external">
-<div class="listing-date">
-Dec 6, 2023
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="4" data-listing-date-sort="1701417600000" data-listing-file-modified-sort="1722963816458" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
-<div class="thumbnail">
-<p><a href="./projects/depression and health/depression_health.html" class="no-external"></a></p><a href="./projects/depression and health/depression_health.html" class="no-external">
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-</a><p><a href="./projects/depression and health/depression_health.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./projects/depression and health/depression_health.html" class="no-external">Depression and health</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./projects/depression and health/depression_health.html" class="no-external"></a>
-</div>
-<div class="listing-description">
-<a href="./projects/depression and health/depression_health.html" class="no-external">Data visualization to examine what factors influence depression and health over time</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./projects/depression and health/depression_health.html" class="no-external">
-<div class="listing-date">
-Dec 1, 2023
-</div>
-</a>
-</div>
-</div>
-</div>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
-</div></main> <!-- /main -->
+ <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -370,13 +187,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
   toggleBodyColorPrimary();  
-  const icon = "";
-  const anchorJS = new window.AnchorJS();
-  anchorJS.options = {
-    placement: 'right',
-    icon: icon
-  };
-  anchorJS.add('.anchored');
   const isCodeAnnotation = (el) => {
     for (const clz of el.classList) {
       if (clz.startsWith('code-annotation-')) {                     

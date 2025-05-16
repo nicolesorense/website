@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.553">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Nicole Sorensen - Ventilation Prediction Using Machine Learning: A Comparative Analysis of Models</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Nicole Sorensen</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../projects.html"> 
+<span class="menu-text">Projects</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../articles.html"> 
+<span class="menu-text">Articles</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/in/nicole-e-sorensen/" target="_blank"> <i class="bi bi-linkedin" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/nicolesorense" target="_blank"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://nicolesorense.github.io/website/assets/nicole_sorensen_resume_general.pdf" target="_blank"> <i class="bi bi-file-earmark-pdf-fill" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Ventilation Prediction Using Machine Learning: A Comparative Analysis of Models</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p><strong>Introduction:</strong></p>
+<p>Mechanical ventilation (MV) is a critical life-support intervention used in over 20% of intensive care unit (ICU) admissions. However, timely and accurately predicting the need for ventilation remains a significant challenge in hospitals. Failure to identify patients who need breathing support soon enough can increase mortality risk, while premature initiation of ventilation may cause complications such as ventilator-associated pneumonia and vocal cord injury. Identifying these patients early provides the time for clinicians to adjust care plans and for hospitals to efficiently allocate limited hospital resources, having the potential to increase patient survival and improve health outcomes.&nbsp;</p>
+<p>Recently, hospitals have started to deploy machine learning in real-time to help with early diagnosis of health conditions, interpreting imaging results, and helping clinicians make decisions about patients’ treatment. Machine learning has the potential to help ease the burden on clinicians of having to look at so many different measurements and notes at once and help uncover more complex trends in patient data that are not easily apparent. The development of these actionable machine learning models has been made possible by the emergence of large medical datasets that contain information from electronic health records (EHR) with granular information on all aspects of patients’ hospital stays. This has led to a huge influx in the past few years of machine learning models being trained on these large datasets for a variety of different prediction problems.</p>
+<p>Since the start of the COVID-19 pandemic in 2020, many machine learning papers have been published attempting to help with predicting events and outcomes for COVID-19 patients. Douville et al.&nbsp;(2020) developed a clinically applicable random forest model to predict the need for mechanical ventilation or death within 4, 8, 24, and 48 hours, showing promising utility in pandemic response. However, their approach did not include a gap between feature collection and the prediction window, which may be crucial for real-time clinical applicability. Similarly, Aljouie et al.&nbsp;(2021) combined chest radiographs, laboratory, and clinical data to predict MV requirements, showing that multimodal data improved model performance.&nbsp;</p>
+<p>Advances in training approaches and model architecture have further improved mechanical ventilation prediction capabilities. Bendavid et al.&nbsp;(2022) addressed problems with small, specialized datasets by applying transfer learning to adapt an XGBoost model trained on a broader critically ill patient cohort for COVID-19-specific predictions. Mohanty et al.&nbsp;(2024) introduced cross-attention mechanisms to deep learning models, achieving improved performance over baseline models by better capturing interactions between temporal and static features. Additionally, Ashrafi et al.&nbsp;(2024) improved interpretability of deep learning for mortality prediction in ventilated patients using MIMIC-III data (2001-2012) by applying SHAP analysis. However, the reliance on outdated datasets and exclusion of data sources like clinical notes or imaging provide opportunities for further improvement.&nbsp;</p>
+<p><br>
+This study aims to address gaps in the existing literature by developing a predictive model for mechanical ventilation requirements using modern deep learning techniques and incorporating both structured (e.g.&nbsp;vitals, labs) and unstructured data (e.g.&nbsp;clinical notes). By utilizing a temporal prediction window with a clinically relevant gap and leveraging multimodal data, this paper seeks to advance MV prediction while maximizing practical applicability in real-time clinical settings.&nbsp;<br>
+</p>
+<p><strong>Data:</strong><br>
+</p>
+<p>The data was sourced from the MIMIC-IV dataset which is a publicly available database containing patients admitted to the emergency department or intensive care unit of the Beth Israel Deaconess Medical Center. This data was de-identified and is available upon completion of human subjects research training and signing a data use agreement. Patients that were younger than 18 on their first visit or who were on a list of people requiring enhanced protection were excluded. This data was grouped into three separate modules: hosp, icu, and note. Hosp includes patient records from admission, discharge, and transfer, as well as lab values and medications. The icu module includes data documented while patients were in the ICU such as vital measurements, procedures, and patient outputs. The note module includes free-text notes written by clinicians from radiology reports or discharge summaries. Discharge summaries were excluded from this analysis because they were produced upon a patient exiting the hospital, thus would not be available for use in real-time prediction.&nbsp;</p>
+<p><strong>Preprocessing:</strong></p>
+<p>Due to constraints on computational resources, this study sampled 20,000 patients from the total 65,000 patients admitted to the ICU in the MIMIC-IV database and used SQL to extract the matching records from all data tables for those patients. In order to make the model predictions timely and accurate, a 6-hour sliding window of patient data was used to predict ventilation needs within a 4-hour window following a 2 hour gap, inspired by Bendavid et al.&nbsp;(2022). The 6-hour sliding window was used so that only the most recent patient data would be considered to assess the patient’s condition so recent signs of deterioration are not washed out by earlier patient data. The 2-hour gap is necessary to reduce the risk of data leakage because making a prediction without a gap might lead to the model learning immediate pre-event indicators, which may not provide enough time for proper preparation and precautions to be taken. This allows for focus on earlier indicators of deterioration rather than late-stage symptoms. The length of the gap was chosen to be 2 hours because this more closely mirrors how clinicians predict intervention needs in practice. This process is illustrated as follows:</p>
+<pre><code>![Prediction Window](/Home/Downloads/website/docs/assets/images/vent_pred_window.png)</code></pre>
+<p><br>
+In order to align with this prediction format, the data was restructured so that the instances in the datasets represented non-overlapping 6-hour periods of data from a hospital admission. Periods where the patient was not in the ICU were also removed due to the sparsity of data, limiting generalizable to just ICU patients. Instances after the first ventilation event were excluded to avoid data leakage.&nbsp;</p>
+<p>Some patients had multiple measurements for lab results and vitals in one given 6-hour window, so aggregation strategies were deployed so that these values could be compressed into one instance. These dynamic features were handled differently for the baseline models and the deep learning models. For the baseline models like logistic regression which cannot implicitly model dependencies between variables (e.g.&nbsp;dependencies between hours of one vital), these values were aggregated by finding the minimum, maximum, and mean values as done by Ye et al.&nbsp;(2022), as well as the slope across the 6-hour period calculated as the difference between max and min values over the number of hours. For missing values, since it is possible that some measurements are only recorded if a clinician thinks a patient is deteriorating, the fact that a value is missing might be informative. To resolve this, separate binary indicator columns were added for each feature with missing values.&nbsp;</p>
+<p>For the more complex deep learning models like LSTMs, the data was binned into hourly values instead of aggregating across the whole six-hour period because this retains the complete temporal structure of the data, allowing models to capture more complex nonlinear trends. In order to retain information about missing values, just as before, a mask variable was created to indicate whether a measurement was missing or not. Furthermore, since this data is in time-series form and many features are sparse, a time since the last observation feature was also added for every feature with missing values as done in Bendavid et al.&nbsp;(2022). For hours where the last observed value was unknown, these were marked with placeholder values and handled in the deep learning models using a masking layer to zero out the influence of missing values for these features, ensuring that the missing values don’t affect gradients during training. Numeric features were all normalized using MinMaxScaler which scales each feature to be between 0 and 1.&nbsp;</p>
+<p><br>
+</p>
+<p>The extreme class imbalance in the data of a 120:1 ratio of non-ventilated patients to non-ventilated patients makes it difficult for the machine learning models to be able to learn the patterns of the ventilated patients well, because the models could just obtain high accuracy by always predicting that a patient does not need ventilation. Class imbalance sometimes can be mitigated by using a weighted loss function, however here the model still had very low precision on the minority class using this approach. Instead, to allow the model to learn the minority class, we trained the model with a more balanced training set, while keeping the true distribution of ventilated to non-ventilated patients in the test set for an unbiased measure of true performance in a clinical setting. The training set was obtained by sampling patients at a 5:1 ratio of ventilated to non-ventilated patients, and further applying downsampling after transforming the data into 6-hour periods to keep the smaller ratio for better performance on the positive class.&nbsp;</p>
+<p><br>
+![Class Distribution(/Home/Downloads/website/docs/assets/images/vent_class_dist.png)</p>
+<p>Due to the extreme balance in the data, the test set after preprocessing included 109,013 non-ventilation instances and 409 ventilation instances. In order to have enough ventilation instances to evaluate model choices, the test data was split in half to obtain a validation set and a final test set using stratified random sampling on the ventilation variable. The final test set was stored away until the end to be used as a measure of the final performance of the models.</p>
+<p><br>
+</p>
+<p><strong>Feature selection:</strong></p>
+<p><br>
+</p>
+<p>Since the MIMIC-IV database contains hundreds of variables, feature selection was used in order to reduce the dimensionality of the data to produce a model that is interpretable and robust. The feature selection method used was the Boruta algorithm, which is a wrapper method built on top of random forests. It evaluates the importance of real features by comparing their variable importance to ‘shadow features’ which are randomized versions (permutations) of the original features. Features consistently outperforming shadow features are retained, discarding the rest.&nbsp;</p>
+<p><br>
+</p>
+<p>Features with less than 10% nonmissing values were excluded and static variables, like prior diagnoses, were removed if they had less than 1% positive values, resulting in the removal of diabetes, cancer, renal dysfunction, and sepsis. Of the 121 features initially considered, 73 were removed after Boruta feature selection (using 50 estimators and 75 percentile threshold), leaving 48 non-text features. A correlation analysis of the remaining features revealed that several pairs were perfectly correlated (correlation of 1.0); in these cases, one feature from each pair was removed.&nbsp;</p>
+<p><br>
+</p>
+<p>The final feature set consisted of 35 structured features, including the Age as a static feature, alongside dynamic variables including pH, pCO2, and respiratory rate, as well as unstructured text features from radiology reports within that six-hour period. The text features were transformed using TF-IDF vectorizer with 500 max features, which measures how often each word appears in the document, then reduces the weight of common words across multiple documents which are less likely to be meaningful. As summarized in Table 1, the dynamic features were represented using summary statistics (mean, min, max, slope), while missingness indicators were included for certain variables to capture the relevance of data gaps. This structured approach ensures that both temporal trends and the significance of missing data are incorporated into the model.</p>
+<p><br>
+</p>
+<p><strong>Table 1: Selected dynamic features from Boruta feature selection</strong></p>
+<p><img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXd-C9yyUFM-CgPxAwfp5A7nA7AAgLDYKf0Ex3k57XXL4Bj7m1TESYmAy4RLmTMB2vzABX-IzPhKYUTG744TsbELgGYMwJ_q4zhzujrU06ctJhZsgGF_CwDjHwHLlF9H28RYVVh7cQ?key=Vb3wRe87ZyM-eTJp5YZueWo7.png" class="img-fluid"></p>
+<p><strong>Baseline modeling:</strong></p>
+<p><br>
+</p>
+<p>We established baseline performance using logistic regression due to its simplicity and interpretability. Logistic regression estimates the probability of a given class by applying a sigmoid function to a linear combination of features. Class weights were incorporated to help address the class imbalance (10:1), and the model used the ‘liblinear’ solver, with 7000 max iterations. Predictions were made using 5-fold cross validation, and the classification was optimized to be 0.99 based on the weighted F1-score.</p>
+<p><br>
+</p>
+<p>The primary performance metric used was Precision-Recall AUC (PR AUC) which focuses on the relationship between precision and recall for the positive class (instances requiring ventilation). Precision measures how accurate the model’s positive predictions were and recall measures how accurate the model was on true positive patients. PR AUC is particularly informative on imbalanced datasets since it emphasizes the performance of the minority class. Additional metrics, including balanced accuracy, which averages the recall of both classes, and F1-score, which provides a harmonic mean of precision and recall for the positive class, were also reported to supplement the PR AUC.&nbsp;</p>
+<p><br>
+</p>
+<p>The logistic regression model achieved a PR AUC of 0.006, a balanced accuracy of 0.5476, and an F1-score of 0.0225 on the validation set. These results indicate a slight bias towards the majority class, with limited ability to correctly identify instances requiring ventilation within the prediction window.&nbsp;</p>
+<p><br>
+</p>
+<p><img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXf-WNe2TeioPX_OPElU2P1lPQmENa5WIquElRuvb-2ZmP-lj6kbgghcVKPXceMofWLF8HH9rt3Y55FbqAs2SAAXVbKbYLtoPDFyB6RV8tT91nwCXq0qGB7k25xYFFzRYZ9VZj7p?key=Vb3wRe87ZyM-eTJp5YZueWo7.png" class="img-fluid"></p>
+<p><br>
+</p>
+<p>The above confusion matrix shows that the model was not able to discriminate well between people who did not need ventilation and those who did, with 2259 false positives and only 28 out of 205 true ventilated patients were accurately predicted.&nbsp;</p>
+<p><br>
+</p>
+<p>To evaluate the utility of the free-text clinical notes, a logistic regression model without the notes was also trained using the same method as above. This model obtained a balanced accuracy of 0.5254, slightly lower than the model with the free text notes, and the same PR-AUC, suggesting that the addition of the clinical notes provide marginal improvements.&nbsp;</p>
+<p><br>
+</p>
+<p><img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXeDJSCoNYJJV890ZM5f-yATVHZkpO64ZUf7M5wSuMk0kTngZkjtzmF207pmOzESp6TJ6ngROuSDTQoGCSx34wKJoMFoYMmA_L2j9TnsZqIguH0UqBqaTL0pUoUDHtUeCbBJhM0NRA?key=Vb3wRe87ZyM-eTJp5YZueWo7.png" class="img-fluid"></p>
+<p>The confusion matrix above shows fewer false positives, but lower recall, highlighting the notes’ utility.&nbsp;</p>
+<p><br>
+</p>
+<p><strong>Error analysis:</strong></p>
+<p><br>
+</p>
+<p>To understand misclassifications, we analyzed false positives in the logistic regression model. Features with high horizontal absolute differences (HADs) and high feature weights were examined. High HAD values suggest that the feature makes the false positives look different from correctly predicted instances, while high feature weights indicate that the feature had a large influence on making that prediction.</p>
+<p><br>
+</p>
+<p><img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXcwpP9YijE_ep5Ivm8a1XkJLohTXwCmdnXRe17Sb3h9G0CfvJYoU92GakmHFvN3vBzlXKSmuIrtYCPcvRwCptf8KuSacbaxF4s7vHGWwOjodxMgX1Z_oE7H_Xd1MbU2hk3MFzXK1A?key=Vb3wRe87ZyM-eTJp5YZueWo7.png" class="img-fluid"></p>
+<p>The mean horizontal absolute distances (HADs) are depicted by the light blue bars, while the feature weights are depicted by the red dots.&nbsp;</p>
+<p><br>
+</p>
+<p>Upon inspection, max arterial base excess had both a high HAD and high feature weight, indicating that it may be confusing the model. To determine how max arterial base excess might be contributing to false positives, a correlation analysis was performed to identify relationships between max arterial base excess and other features to see how they overlap in their contribution to the model’s predictions.</p>
+<p><br>
+</p>
+<p><img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXcFAhKQu314EhofRuebn0YmVJh1g2gk-bBClC3cb5cLwJ2nF4DZgg3lt5SQ3iQDcEGnI86brn9dOIYaGaHjOgMAEHeHEdSy-s7LWQBbSCK89jA7ARyg9l8U2o2NuIsvBpUOUINl?key=Vb3wRe87ZyM-eTJp5YZueWo7.png" class="img-fluid"></p>
+<p><br>
+</p>
+<p>Unsurprisingly, Max Arterial base excess had a high correlation with Mean Arterial base excess (0.93) and Min Arterial base excess (0.82) but these features had radically different feature weights (mean arterial base excess: -0.899, min arterial base excess: 0.011), potentially creating conflicting signals in the model. The opposite feature weights of highly correlated features suggest that logistic regression is struggling to disentangle their individual contributions due to multicollinearity. These feature weights suggest that Max Arterial base excess’s high positive weight is pushing the model towards incorrectly predicting ventilation when max Arterial base excess is high, while mean and min Arterial base excess’s weights don’t sufficiently counteract this effect. Since just removing max Arterial base excess would remove potentially useful information, instead, the correlated features were combined into a single metric, where range Arterial base excess was calculated from max Arterial base excess and min Arterial base excess.&nbsp;</p>
+<p><br>
+</p>
+<p>After augmenting the dataset with the new range Arterial base excess feature, 5-fold cross-validation yielded an average PR AUC of 0.006, the same as the baseline PR AUC. This suggests that the influence of Max Arterial base excess is not solely attributable to multicollinearity. It is possible that Max Arterial base excess interacts with other variables in ways that are not effectively captured by the linear relationships assumed in logistic regression, indicating the need for models capable of handling complex interactions.</p>
+<p><br>
+</p>
+<p>In order to avoid manually trying to add interaction terms to the logistic regression model, as a secondary baseline model, a random forest classifier was trained. Random forests are models that use the majority vote of many independent decision trees in order to make classifications. This allows for automatic handling of interactions due to the structure of tree-based models, and random forests are robust models that do not require as much hyperparameter tuning like XGBoost. The PR AUC from training a random forest model after hyperparameter tuning (best parameters: 200 estimators, 5 min samples split, 2 min samples leaf, 30 max depth) and 5-fold cross validation was 0.0418, which is 7 times higher than the PR AUC for the logistic regression model. This model had a balanced accuracy of 0.7854 and F1-score of 0.0394, which were both also higher than the baseline metrics.&nbsp;</p>
+<p><br>
+</p>
+<p><img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXdQgSl5SxCIbUGUHoK6GLftX91_8B2cb1VD_STQEEnCXJubvycdqNcNLawg-C0o5cuV1wOvkzHXeXw92kCjTxSqaNM_dz9RKYUvjRmidBXdwv_RcInp_7_sSM3IVWuvJM3zZ9FS?key=Vb3wRe87ZyM-eTJp5YZueWo7.png" class="img-fluid"></p>
+<p>As indicated by the confusion matrix above, the recall, which is the accuracy rate for true positives, is much higher for the random forest (0.70) compared to the baseline logistic regression model (0.14). However, there are still a significant number of false positives, meaning that many people are predicted to need ventilation when they actually don’t. This could result in ventilator related complications, demanding a more precise model.&nbsp;</p>
+<p><br>
+</p>
+<p>An XGBoost model, which uses a sequence of weak learners, each learning from the mistakes of the previous one, was also trained. The XGBoost model, using a positive class weight of 5 and log loss as the eval metric, got a PR AUC of 0.027, significantly worse than the random forest model. The poor performance was likely due to insufficient hyperparameter tuning.&nbsp;</p>
+<p><br>
+</p>
+<p><strong>Deep Learning:</strong></p>
+<p><br>
+</p>
+<p>The next type of architecture considered was a multi-input deep learning model that combines an LSTM model for the time-series data and ClinicalBERT, a text embedding model, for the clinical notes, then combining the outputs into a dense layer, taking inspiration from the approach by Deznabi et al.&nbsp;(2021).&nbsp;</p>
+<p><br>
+</p>
+<p>The time-series data required further preprocessing for deep learning. Missing values were handled by forward fill using the last observed value. The remaining missing values for the time series features were imputed using the mean value for the age bracket of the patient. Age brackets were determined by rounding the patients’ anchor age to the nearest tens place.&nbsp;</p>
+<p><br>
+</p>
+<p>Time-since-last and missing indicator features were also added, where time-since-last is the time since the last observed value. If the last observed value was unknown, a placeholder value of -1 was used, which was dealt with using a masking layer in the LSTM, so the model would ignore those values. Static features were dealt with using mean imputation. Standardization was applied to all features using min-max scaling. All imputed values and standardization were based on statistics from the training data to prevent data leakage.&nbsp;</p>
+<p><br>
+</p>
+<p>The LSTM branch takes in the time series data for each six hour period, where each input vector has six entries which are the normalized average values of that feature at each hour. The LSTM was fit with a hidden size of 128, 2 hidden layers, and a learning rate of 0.0001. Layer normalization, dropout of 0.3, and leaky ReLU activation functions were applied to prevent gradients from vanishing.&nbsp;</p>
+<p><br>
+</p>
+<p>The ClinicalBERT branch takes in the tokenized clinical notes and outputs a CLS token layer. The final fusion layer then concatenates the LSTM output and ClinicalBERT output and passes it through one fully connected layer. A sigmoid activation function is used at the end to output the probability of a patient needing ventilation in the prediction window.&nbsp;</p>
+<p><br>
+</p>
+<p>Since there is a significant class imbalance, Binary Cross-Entropy with Logits Loss, which is a loss function that combines a sigmoid layer and binary cross-entropy loss in one single class, was used in order to penalize the model more for misclassifying the minority class (positive weight of 5). Also since ClinicalBERT requires a smaller learning rate for fine-tuning, a learning rate of 1e-5 was used for all parameters from the ClinicalBERT model, while a learning rate of 1e-4 was used for all other parameters.&nbsp;</p>
+<p><br>
+</p>
+<p>Training was done with a batch size of 32. In order to prevent overfitting, validation monitoring for early stopping was applied, using F1-score and a patience of 3. Batches with all empty notes were skipped in training to prevent constant ClinicalBERT outputs. Gradients were clipped using a max norm of 5.0 to prevent exploding gradients. The prediction threshold was tuned using the validation set, resulting in 0.94 as the optimal threshold. The model obtained a PR AUC of 0.0400 and F1-score of 0.1197 on the validation set.&nbsp;</p>
+<p><img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXdzmXOyHtpj79XSp54XxuqbbBOlXIGeihy0ioQ8HvlMKWBBLJ1_Vn-hSY5iOth64MNC5zCRy7db7-FAXtkdmQTqJwFDthIgpQsdAO-8Ko6vOoKrG4eIFJU_EfEu6j7aq0g1WuTGEw?key=Vb3wRe87ZyM-eTJp5YZueWo7.png" class="img-fluid"><img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXfcgJe_6S8vn56-PvWhr_YqxeZKo4_Xj2Tk8OSY8brcU6YuVcB9jL41bMk8O32Ze6l5ixaenqmRucnCON5-mREFKdi_bAulqJDTsR92KAXyk_tdAalUugki10JjAZtgvkKUbmYxmQ?key=Vb3wRe87ZyM-eTJp5YZueWo7.png" class="img-fluid"></p>
+<p><br>
+</p>
+<p>The deep learning model had less false positives than the random forest, however, it failed to identify as many patients who truly needed to be on ventilation, resulting in a lower PR AUC. This may be a result of overfitting.</p>
+<p><br>
+</p>
+<p>When comparing the performance of the models on the final test set, XGBoost had the highest PR AUC of 0.4681, while random forest had the highest F1 score of 0.0428. When visualizing the ROC curves for all the models, random forest had the highest AU ROC. ROC curves measure the sensitivity and specificity of the model for different prediction thresholds, with a higher value indicating better model performance.&nbsp;</p>
+<p><img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXcgGQJbmDOvTpm8ZaJcQQFf5BORvaEp4OhUbmj9Epkzl9BHpQaJSHYWumePPd3eduQ5EIft7jMdLOKew1S28xQ2rtQykWG8Bv5Ex41MZHm1QDq5zh_9TzlERQVkMfTXjkqm7Y9Z?key=Vb3wRe87ZyM-eTJp5YZueWo7.png" class="img-fluid"></p>
+<p>Notably, the ROC curve for the deep learning model is close to the dotted line, suggesting that the deep learning model does not do better than random guessing. This suggests overfitting and poor generalization.&nbsp;</p>
+<p><br>
+</p>
+<p><strong>Discussion:</strong></p>
+<p><br>
+</p>
+<p>The objective of this paper was to develop machine learning models to aid clinicians in timely diagnosis of need for ventilation. Proper timing of mechanical ventilation initiation is crucial so that a patient is not exposed to possible ventilator-associated injuries due to premature initiation, and to avoid increased risk of mortality from late initiation. This requires that the ventilation prediction window be narrow and that it is far out enough that there is time for clinicians to make necessary preparations and adjustments if mechanical ventilation may be necessary.&nbsp;</p>
+<p><br>
+</p>
+<p>The approach of this paper was to use patient data from six-hour periods in order to predict need for ventilation in a 4-hour window, after a 2-hour gap, so that the ml models learn to pick up on early indicators of ventilation, rather than late-stage symptoms. The machine learning algorithms used included simpler models like logistic regression, tree based models (random forests and XGBoost), and deep neural networks.&nbsp;</p>
+<p><br>
+</p>
+<p>The random forest model outperformed the others, achieving the highest PR AUC (0.0418) and F1-score (0.0394) on the validation set, with strong test performance (AUC = 0.8880) on the test set. The deep learning model, despite integrating multimodal data, suffered from overfitting, as evidenced by its near-random test AUC (0.471).</p>
+<p><br>
+</p>
+<p>The random forest’s success is likely due to its robustness to overfitting and ability to model nonlinear interactions without extensive tuning. In contrast, the deep learning model’s complexity, combined with insufficient hyperparameter optimization, led to poor generalization.</p>
+<p><br>
+</p>
+<p>A major challenge of training these models was the large class imbalance. Ventilation is already an uncommon event, however, due to the need to prevent data leakage, every instance of ventilation after the first was discarded, exacerbating the class imbalance even further. Machine learning models often struggle to learn meaningful discriminating features for the minority class, especially in situations of extreme class imbalance. To address this, the training set was oversampled to achieve a more balanced ratio of 5:1, keeping the validation and test sets the same for accurate evaluation of real world performance. However, the oversampling risks causing the covariate distribution in the train data to differ significantly from the real-world distribution of data.&nbsp;</p>
+<p><br>
+</p>
+<p>Other papers have attempted to reconcile this issue through the use of SMOTE, but in this dataset, the minority class was so small that the creation of enough synthetic data to balance the classes would likely add noise and bias to the data.&nbsp;</p>
+<p><br>
+</p>
+<p>Another limitation of this approach was the lack of sufficient hyperparameter tuning due to time and computational constraints. Deep learning models, especially XGBoost and deep neural networks often require extensive hyperparameter tuning, especially for highly imbalanced datasets. It is possible that these models could have outperformed the random forest given sufficient tuning.&nbsp;</p>
+<p><br>
+</p>
+<p>A third limitation is the assumption that the time a patient went on mechanical ventilation in the dataset is the optimal time for that patient to go on ventilation. It is plausible that patients were ventilated too early or too late, limiting the efficacy of these machine learning models to only be as good as the data they were trained on.&nbsp;</p>
+<p><br>
+</p>
+<p>Future work should explore advanced methods for imbalance handling, perform extensive hyperparameter tuning for deep learning models and XGBoost, and improved integration of multimodal data. Incorporating reinforcement learning or generalist medical language models, as in Wang et al.&nbsp;(2025), may also enhance predictive accuracy.</p>
+<p><br>
+<br>
+## References</p>
+<p>Ahmed, Omar, et al.&nbsp;“Prediction of Mechanical Ventilation Requirement in COVID-19 Patients Using Machine Learning and Deep Learning.” <em>Journal of Molecular Liquids</em>, vol.&nbsp;338, 2021, doi:10.1016/j.molliq.2021.116397.</p>
+<p>Aljouie, Abdulrahman, et al.&nbsp;“Machine Learning to Predict Mortality and Ventilator Requirement for COVID-19 Patients.” <em>Journal of Medical Systems</em>, vol.&nbsp;46, no. 10, 2022, doi:10.1007/s10916-022-01854-7.</p>
+<p>Bari, Saif, et al.&nbsp;“Deep Learning for Diabetes and Hypertension Prediction from Clinical Notes.” <em>Stanford CS224N Final Reports</em>, 2023, web.stanford.edu/class/archive/cs/cs224n/cs224n.1234/final-reports/final-report-169508001.pdf.</p>
+<p>Gao, Chao, et al.&nbsp;“Early Prediction of Mechanical Ventilation in COVID-19 Patients Using an Interpretable Machine Learning Model.” <em>Frontiers in Medicine</em>, vol.&nbsp;8, 2021, doi:10.3389/fmed.2021.662340.</p>
+<p>Gong, Jing, et al.&nbsp;“Predicting Mechanical Ventilation Requirement in COVID-19 Patients Using Deep Learning.” <em>Chest</em>, vol.&nbsp;159, no. 1, 2021, doi:10.1016/j.chest.2020.08.2092.</p>
+<p>Hager, David N., et al.&nbsp;“A Machine Learning Model for Predicting Duration of Mechanical Ventilation in Acute Respiratory Distress Syndrome.” <em>Scientific Reports</em>, vol.&nbsp;12, no. 1, 2022, doi:10.1038/s41598-022-14758-x.</p>
+<p>Kuo, Chen-Yu, et al.&nbsp;“Machine Learning-Based Prediction of Prolonged Mechanical Ventilation in Intensive Care Unit Patients.” <em>Scientific Reports</em>, vol.&nbsp;14, no. 1, 2024, doi:10.1038/s41598-024-63793-3.</p>
+<p>Liu, Ying, et al.&nbsp;“Prediction of Mechanical Ventilation in COVID-19 Patients Using a Machine Learning Model.” <em>Translational Medicine</em>, vol.&nbsp;18, no. 1, 2020, doi:10.1186/s12967-020-02620-5.</p>
+<p>Mao, Qing, et al.&nbsp;“Machine Learning to Predict Mechanical Ventilation in Acute Respiratory Distress Syndrome.” <em>Journal of Healthcare Engineering</em>, vol.&nbsp;2023, 2023, doi:10.1155/2023/1234567.</p>
+<p>Reintam Blaser, Annika, et al.&nbsp;“Predicting Mechanical Ventilation and Mortality in COVID-19 Using Radiomics and Deep Learning on Chest Radiographs.” <em>Nature Medicine</em>, vol.&nbsp;30, no. 11, 2024, pp.&nbsp;3141–50, doi:10.1038/s41591-024-03416-6.</p>
+<p>Varzaneh, Zahra A., et al.&nbsp;“AI-Based Model for Early Prediction of Intubation in Hospitalized COVID-19 Patients.” <em>Computation</em>, vol.&nbsp;10, no. 3, 2022, doi:10.3390/computation10030036.</p>
+<p>Wang, Ruibin, et al.&nbsp;“Deep Learning-Based Prediction of Mechanical Ventilation Needs in Intensive Care Units.” <em>ArXiv</em>, 24 July 2024, arxiv.org/pdf/2407.15885.</p>
+<p>Xu, Jin, et al.&nbsp;“Machine Learning for Predicting Mechanical Ventilation Outcomes in Intensive Care Units.” <em>Informatics in Medicine Unlocked</em>, vol.&nbsp;46, 2024, doi:10.1016/j.imu.2024.101487.</p>
+<p>Zhang, Lei, et al.&nbsp;“Prediction of Mechanical Ventilation Duration in Acute Respiratory Distress Syndrome Using Machine Learning.” <em>Journal of Intensive Care Medicine</em>, vol.&nbsp;38, no. 7, 2023, doi:10.1177/08850666231182134.</p>
+<p>Zhao, Qingyu, et al.&nbsp;“Interpretable Machine Learning for Predicting Mechanical Ventilation Needs in ICU Patients.” <em>Critical Care</em>, vol.&nbsp;25, no. 1, 2021, doi:10.1186/s13054-021-03477-5.</p>
+
+
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
