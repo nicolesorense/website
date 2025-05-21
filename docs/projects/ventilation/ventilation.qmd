@@ -1,7 +1,7 @@
 ---
 title: "Ventilation Prediction using Deep Learning"
 description: "Training machine learning models to predict the timing of ventilation needs in the ICU."
-date: May 2025
+date: May 15, 2025
 resources: "."
 about:
   template: solana
