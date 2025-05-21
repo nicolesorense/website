@@ -1,0 +1,18 @@
+---
+title: "Causal Analysis of ICU Transfers and Sepsis"
+description: "Causal discovery and inference of inter-unit ICU transfers on sepsis onset using MIMIC-IV data."
+date: May 2025
+resources: "."
+about:
+  template: solana
+  image: https://nicolesorense.github.io/website/assets/fci_postprocessed.png
+  links:
+    - icon: pencil
+      text: "Report"
+      href: https://nicolesorense.github.io/website/assets/sepsis_causal_analysis.html
+      target: _blank
+    - icon: github
+      text: "GitHub"
+      href: https://github.com/nicolesorense/Ventilation-Prediction
+      target: _blank
+---

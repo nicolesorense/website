@@ -11,4 +11,8 @@ about:
       text: "Report"
       href: https://nicolesorense.github.io/website/assets/vent_pred_paper.html
       target: _blank
+    - icon: github
+      text: "GitHub"
+      href: https://github.com/nicolesorense/Ventilation-Prediction
+      target: _blank
 ---

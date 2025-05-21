@@ -8,6 +8,7 @@
   {
     "listing": "/projects.html",
     "items": [
+      "/projects/sepsis/sepsis.html",
       "/projects/ventilation/ventilation.html",
       "/projects/capstone/capstone.html",
       "/projects/eda/eda.html",
