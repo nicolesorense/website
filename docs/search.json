@@ -11,7 +11,7 @@
     "href": "index.html",
     "title": "Nicole Sorensen",
     "section": "",
-    "text": "Welcome to my website! I’m a senior at Carnegie Mellon University, pursuing a degree in Statistics and Machine Learning. My academic and research interests center on causality—causal inference, causal discovery, and their integration with machine learning—to address critical healthcare challenges, particularly chronic diseases like Alzheimer’s. I’m passionate about leveraging data to uncover insights that can lead to better prevention and treatment strategies.\nExplore My Projects"
+    "text": "Welcome to my website! I’m a senior at Carnegie Mellon University, pursuing a degree in Statistics and Machine Learning. My research interests lie at the intersection of causal inference, statistical genetics, and computational biology. I’m particularly focused on developing and applying causal methods to single-cell genomics data to better understand complex diseases like Alzheimer’s. Currently, I’m working on evaluating causal differential expression methods using single-cell RNA-seq data from Alzheimer’s disease patients, combining techniques from statistics, causal inference, and genomics. I’m passionate about using rigorous statistical methods to uncover biological mechanisms that can inform prevention and treatment strategies for diseases.\nExplore My Projects"
   },
   {
     "objectID": "articles/gams/GAM_article.html",
